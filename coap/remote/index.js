@@ -1,9 +1,10 @@
 const express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
-  WebSocket = require('ws'),
-  dataInPort = '8102', //Part where the publisher can connect to to publish data.
-  wss = new WebSocket.Server({ port: 8101 }, function () { }); //Select a port that is open on your server here ...
+  WebSocket = require('ws'), 
+  config = require('../../configuration.js'),
+  dataInPort = Config.coap_recieve_port, //Part where the publisher can connect to to publish data.
+  wss = new WebSocket.Server({ port: Config.coap_publish_port }, function () { }); //Clients will connect to this port to recieve data.
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
