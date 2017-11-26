@@ -1,0 +1,23 @@
+{
+  "name": "mqtt-publisher",
+  "version": "1.0.0",
+  "description": "Example for an MQTT publisher using two sensors.",
+  "repository": {
+    "type": "git",
+    "url":"https://github.com/ASloth/iot-protocol-examples"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "florian stöckl, stefan machmeier, konrad müller",
+  "license": "ISC",
+  "dependencies": {
+    "bh1750": "0.0.3",
+    "ds18b20": "^0.1.0",
+    "i2c": "^0.2.3",
+    "ms-time": "^0.4.0",
+    "time": "^0.12.0",
+    "time-ms": "^1.0.0"
+  }
+}
