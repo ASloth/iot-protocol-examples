@@ -1,0 +1,19 @@
+{
+  "name": "coap-publisher",
+  "version": "1.0.0",
+  "description": "Publishes data from coap servers in the local network to a remote server.",
+  "repository": {
+    "type": "git",
+    "url":"https://github.com/ASloth/iot-protocol-examples"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "florian stöckl, stefan machmeier, konrad müller",
+  "license": "ISC",
+  "dependencies": {
+    "coap": "^0.21.0",
+    "request": "^2.83.0"
+  }
+}
