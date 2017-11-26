@@ -4,8 +4,9 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { LightIntensityService } from './lightIntensity.service';
 import { TemperaturService } from "./temperatur.service";
+import {Config} from './../../../configuration';
 
-const socket_url = 'ws://ur.l:port'; //Url to the websocket that provides the coap data 
+const socket_url = 'ws://' + Config.coap_websocket_address + ':' + Config.coap_publish_port; //Url to the websocket that provides the coap data 
 
 export class Message {
     time: string
@@ -31,11 +32,13 @@ export class CoapComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     console.log("--- INIT COAP CONNECTION ---");
 
+    console.log("COAP: Configured address: " + socket_url);
+
     //Set websocket message object
     this.websocketMessage = <Subject<Message>>this.wsService
       .connect(socket_url).map((response: MessageEvent): Message => {
         const data = response.data;
-        console.log("Recieved data from websocket.");
+        console.log("COAP: Recieved data from websocket.");
         console.log(data);
         return data;
       });

@@ -2,8 +2,10 @@ import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import * as MQTT from 'mqtt';
 import {LightIntensityService} from './lightIntensity.service';
 import {TemperaturService} from './temperatur.service';
+import {Config} from './../../../configuration';
 
-const mqttBroker = 'http://'; //Adress of your broker comes here
+
+const mqttBroker = 'http://' + Config.mqtt_broker_address + ':' + Config.mqtt_broker_websocket_port ; //Adress of your broker comes here
 let client;
 
 @Component({
@@ -22,9 +24,12 @@ export class MqttComponent implements OnInit, OnDestroy, AfterViewInit {
 
     client.on('connect',
       () => {
+        console.log("--- INIT MQTT CONNECTION ---"); 
+        console.log("MQTT: Configured address: " + mqttBroker);
+
         client.subscribe('test/temp');
         client.subscribe('test/light'); 
-        console.log('Connected to ' + mqttBroker);
+        console.log('MQTT: Connected');
       });
 
     client.on('message',

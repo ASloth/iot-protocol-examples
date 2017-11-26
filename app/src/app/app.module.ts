@@ -13,6 +13,7 @@ import {LightIntensityService} from './lightIntensity.service';
 import {TemperaturService} from './temperatur.service';
 import {TemperaturGraphComponent} from './temperatur.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {Config} from './../../../configuration';
 
 const appRoutes: Routes = [
   { path: 'mqtt', component: MqttComponent },
