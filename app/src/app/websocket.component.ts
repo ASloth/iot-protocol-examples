@@ -4,8 +4,9 @@ import {Subject} from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import {LightIntensityService} from './lightIntensity.service';
 import {TemperaturService} from "./temperatur.service";
+import {Config} from './../../../configuration';
 
-const websocketAdress = 'ws://ur.l:port/'; //Adress of the websocket
+const websocketAdress = 'ws://' + Config.websocket_address + ':' + Config.websocket_port +'/'; //Adress of the websocket
 
 export class Message {
   value: string;
@@ -26,6 +27,8 @@ export class WebsocketComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     console.log("--- INIT WEBSOCKETS ---");
+    console.log("WebSocket: Configured address: " + websocketAdress);
+
     this.lights = <Subject<Message>>this.wsService
       .connect(websocketAdress).map((response: MessageEvent): Message => {
         const data = response.data;
