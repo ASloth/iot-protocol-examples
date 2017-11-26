@@ -1,0 +1,21 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "COAP Server example using two sensors.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ASloth/iot-protocol-examples"
+  },
+  "main": "index.js",
+  "scripts": { 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bh1750": "0.0.3",
+    "coap": "^0.21.0",
+    "ds18b20": "^0.1.0",  
+    "time-ms": "^1.0.0"
+  }
+}
