@@ -4,7 +4,7 @@
   "description": "Example for an MQTT publisher using two sensors.",
   "repository": {
     "type": "git",
-    "url":"https://github.com/ASloth/iot-protocol-examples"
+    "url": "https://github.com/ASloth/iot-protocol-examples"
   },
   "main": "index.js",
   "scripts": {

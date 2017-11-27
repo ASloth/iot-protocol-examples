@@ -1,15 +1,15 @@
-var BH1750 = require('bh1750');
+var BH1750 = require('../../bh1750/bh1750');
 var light = new BH1750();
 var mqtt = require('mqtt');
-var client  = mqtt.connect('mqtt://') //Add your broker ip here 
+var config = require('../../configuration.js');
+var client  = mqtt.connect('mqtt://' + Config.mqtt_broker_address + ':' + Config.mqtt_broker_mqtt_port); //Add your broker ip here 
 var ds18b20 = require('ds18b20');
-var tempSensorId = 0;
-var time = require('time-ms');
+var tempSensorId = 0; 
 
 function getTransObject(value){
 		var transObj = {
 			value:value.toString(),
-			time:time()
+			time: new Date()
 		}; 
 		
 		return JSON.stringify(transObj);
