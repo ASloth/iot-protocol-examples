@@ -15,7 +15,7 @@ export class LightGraphComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // lineChart
   public lineChartData: Array<any> = [
-    {data: [], label: 'Light Intesity'}
+    {data: [], label: 'Light Intensity'}
   ];
   public lineChartLabels: Array<any> = [];
   public lineChartOptions: any = {
